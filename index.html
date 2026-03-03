@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Weather | Complete City Coverage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-cloud-sun"></i>
+                <h2>भारत Weather</h2>
+                <span class="city-count" id="cityCount"></span>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search any Indian city..." id="citySearch" list="all-cities">
+                    <datalist id="all-cities"></datalist>
+                </div>
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="location-btn" id="locationBtn">
+                    <i class="fas fa-location-dot"></i>
+                </button>
+                <button class="refresh-btn" id="refreshBtn">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        
+        <div class="city-section">
+            <h3><i class="fas fa-map-marker-alt"></i> All Indian Cities (Click any to view weather)</h3>
+            <div class="city-grid" id="cityGrid">
+            </div>
+        </div>
+
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="color: var(--text-color);">Loading weather data...</p>
+        </div>
+
+        
+        <section class="weather-display" id="weatherDisplay">
+            <div class="city-name">
+                <span id="cityName">Mumbai</span>
+                <span class="country-badge" id="countryCode">🇮🇳 INDIA</span>
+            </div>
+            <div class="last-updated" id="lastUpdated">Updating...</div>
+            
+            <div class="weather-main">
+                <div class="weather-icon sun" id="mainWeatherIcon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="temperature" id="temperature">32°C</div>
+                <div class="weather-condition" id="weatherCondition">Hazy Sunshine</div>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-card">
+                    <i class="fas fa-temperature-high"></i>
+                    <div class="detail-label">Feels Like</div>
+                    <div class="detail-value" id="feelsLike">35°C</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-tint"></i>
+                    <div class="detail-label">Humidity</div>
+                    <div class="detail-value" id="humidity">74%</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-wind"></i>
+                    <div class="detail-label">Wind Speed</div>
+                    <div class="detail-value" id="windSpeed">15 km/h</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-compress-alt"></i>
+                    <div class="detail-label">Pressure</div>
+                    <div class="detail-value" id="pressure">1012 hPa</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-eye"></i>
+                    <div class="detail-label">Visibility</div>
+                    <div class="detail-value" id="visibility">5.2 km</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-sun"></i>
+                    <div class="detail-label">UV Index</div>
+                    <div class="detail-value" id="uvIndex">7.2</div>
+                </div>
+            </div>
+
+            <!-- Weather Alert -->
+            <div class="weather-alert" id="weatherAlert">
+                <i class="fas fa-exclamation-triangle"></i> 
+                <span id="alertMessage">Weather alert for this region</span>
+            </div>
+        </section>
+
+    
+        <section class="air-quality-section">
+            <h2 class="section-title"><i class="fas fa-wind"></i> Air Quality Index</h2>
+            <div class="aqi-grid" id="aqiGrid">
+            </div>
+        </section>
+
+        <!-- Forecast Section -->
+        <section class="forecast-section">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h2>
+            <div class="forecast-grid" id="forecastGrid">
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <p>India Weather Service | सटीक मौसम जानकारी</p>
+            <p>Complete coverage of 105+ Indian cities | Real-time weather data</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">Click any city from the grid above to view weather</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="weatherModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 style="color: var(--text-color);" id="modalCity">City Name</h2>
+            <div class="modal-details" id="modalDetails">
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>              
